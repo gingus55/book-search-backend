@@ -1,0 +1,29 @@
+{
+  "name": "book-search-backend",
+  "version": "1.0.0",
+  "description": "MongoDB/Graphql server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gingus55/book-search-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "bugs": {
+    "url": "https://github.com/gingus55/book-search-backend/issues"
+  },
+  "homepage": "https://github.com/gingus55/book-search-backend#readme"
+}
