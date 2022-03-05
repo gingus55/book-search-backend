@@ -2,6 +2,7 @@ const { AuthenticationError } = require("apollo-server");
 const { User } = require("../models");
 
 const saveBook = async (_, { book }, context) => {
+  console.log(book);
   try {
     if (!context.user) {
       throw new AuthenticationError(

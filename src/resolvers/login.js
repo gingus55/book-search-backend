@@ -3,15 +3,15 @@ const { AuthenticationError } = require("apollo-server");
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
-const login = async (_, { user }) => {
-  const userFromDB = await User.findOne({ email: user.email });
+const login = async (_, { input }, context) => {
+  const userFromDB = await User.findOne({ email: input.email });
 
   if (!userFromDB) {
     console.log("[ERROR]: Failed to login | User does not exist");
     throw new AuthenticationError("Failed to login");
   }
 
-  const isValidPassword = await userFromDB.checkPassword(user.password);
+  const isValidPassword = await userFromDB.isCorrectPassword(input.password);
 
   if (!isValidPassword) {
     console.log("[ERROR]: Failed to login | Incorrect password");
