@@ -15,10 +15,16 @@ const server = new ApolloServer({
 
 const init = async () => {
   try {
-    await mongoose.connect(`mongodb://localhost:27017/${process.env.DB_NAME}`, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(
+      process.env.MONGODB_URI ||
+        `mongodb://localhost:27017/${process.env.DB_NAME}`,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+      }
+    );
 
     const { url } = await server.listen();
     console.log(`Server running on ${url}`);
