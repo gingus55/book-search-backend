@@ -2,6 +2,7 @@ const { User } = require("../models");
 const { AuthenticationError } = require("apollo-server");
 
 const removeBook = async (_, { bookId }, context) => {
+  console.log(bookId);
   try {
     if (!context.user) {
       throw new AuthenticationError(
