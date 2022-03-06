@@ -2,7 +2,6 @@ const { AuthenticationError } = require("apollo-server");
 const { User } = require("../models");
 
 const saveBook = async (_, { input }, context) => {
-  // console.log(`[TITLE]: ${context.user}`);
   try {
     if (!context.user) {
       throw new AuthenticationError(
@@ -29,17 +28,4 @@ const saveBook = async (_, { input }, context) => {
 };
 
 module.exports = saveBook;
-// async saveBook({ user, body }, res) {
-//     console.log(user);
-//     try {
-//       const updatedUser = await User.findOneAndUpdate(
-//         { _id: user._id },
-//         { $addToSet: { savedBooks: body } },
-//         { new: true, runValidators: true }
-//       );
-//       return res.json(updatedUser);
-//     } catch (err) {
-//       console.log(err);
-//       return res.status(400).json(err);
-//     }
-//   },
+
